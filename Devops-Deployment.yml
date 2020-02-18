@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: devopsweb
-        image: "devops quay url"
+        image: "https://hub.docker.com/repository/docker/arvindvijaya/hellodevopsdocker"
         ports:
         - containerPort: 1020
  
