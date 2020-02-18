@@ -1,0 +1,5 @@
+name: Devops demo
+version: 1.0.0
+description: understanding helm and kubernetes
+maintainers: 
+     - name: Arvind Vijaya
