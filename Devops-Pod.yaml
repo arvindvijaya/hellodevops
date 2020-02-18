@@ -1,0 +1,15 @@
+apiVersion: "v1"
+kind: Pod
+metadata:
+  name: devops-Web-pod
+  labels:
+    name: devops
+    env: dev
+spec:
+  containers:
+    - name: devopsweb
+      image: "devops quay url"
+      ports:
+        - containerPort: 1020
+          name: http
+          protocol: TCP
