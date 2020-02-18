@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: devops-svc
+  labels:
+    name: devops
+    env: dev
+spec:
+  selector:
+    name: devops
+  type: NodePort
+  ports:
+    - port: 80
+      name: http
+      targetPort: 1020
+      protocol: TCP
