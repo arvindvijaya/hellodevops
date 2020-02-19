@@ -8,8 +8,10 @@ metadata:
 spec:
   containers:
     - name: devopsweb
-      image: "https://hub.docker.com/repository/docker/arvindvijaya/hellodevopsdocker"
+      image: arvindvijaya/hellodevopsdocker:latest
       ports:
         - containerPort: 80
           name: http
           protocol: TCP
+  imagePullSecrets:
+    - name: arvind-secret-key

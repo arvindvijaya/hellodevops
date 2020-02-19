@@ -1,4 +1,4 @@
-apiVersion: "v1""
+apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: devops-deployment
@@ -15,10 +15,12 @@ spec:
       labels:
         name: devops
     spec:
-      containers:
-      - name: devopsweb
-        image: "https://hub.docker.com/repository/docker/arvindvijaya/hellodevopsdocker"
-        ports:
-        - containerPort: 1020
- 
- 
+        containers:
+          - name: devopsweb
+            image: arvindvijaya/hellodevopsdocker:latest
+            ports:
+                - containerPort: 80
+                  name: http
+                  protocol: TCP
+        imagePullSecrets:
+          - name: arvind-secret-key
