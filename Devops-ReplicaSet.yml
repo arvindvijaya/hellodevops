@@ -1,7 +1,7 @@
-apiVersion:"v1"
+apiVersion: apps/v1beta2
 kind: ReplicaSet
 metadata:
-  name: devops-replicaset
+  name: rs-devops
   labels:
     name: devops
     env: dev
@@ -16,10 +16,12 @@ spec:
         name: devops
         env: dev
     spec:
-      containers:
-         - name: devopsweb
-           image: "https://hub.docker.com/repository/docker/arvindvijaya/hellodevopsdocker"
-           ports:
-              - containerPort: 1020
-                name: http
-                protocol: TCP
+        containers:
+          - name: devopsweb
+            image: arvindvijaya/hellodevopsdocker:latest
+            ports:
+                - containerPort: 80
+                  name: http
+                  protocol: TCP
+        imagePullSecrets:
+          - name: arvind-secret-key
