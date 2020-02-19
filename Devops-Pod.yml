@@ -1,7 +1,7 @@
 apiVersion: "v1"
 kind: Pod
 metadata:
-  name: devops-Web-pod
+  name: web-devops
   labels:
     name: devops
     env: dev
@@ -10,6 +10,6 @@ spec:
     - name: devopsweb
       image: "https://hub.docker.com/repository/docker/arvindvijaya/hellodevopsdocker"
       ports:
-        - containerPort: 1020
+        - containerPort: 80
           name: http
           protocol: TCP
