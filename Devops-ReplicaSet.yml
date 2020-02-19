@@ -9,14 +9,14 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      name: devops  
+      name: devops
   template:
     metadata:
       labels:
         name: devops
         env: dev
     spec:
-      containers:      
+      containers:
          - name: devopsweb
            image: "https://hub.docker.com/repository/docker/arvindvijaya/hellodevopsdocker"
            ports:
