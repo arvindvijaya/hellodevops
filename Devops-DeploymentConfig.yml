@@ -1,20 +1,19 @@
-apiVersion: apps/v1beta2
-kind: ReplicaSet
+apiVersion:  apps.openshift.io/v1
+kind: DeploymentConfig
 metadata:
-  name: rs-devops
+  name: dc-devops
   labels:
     name: devops
     env: dev
 spec:
   replicas: 3
   selector:
-    matchLabels:
+    #matchLabels:
       name: devops
   template:
     metadata:
       labels:
         name: devops
-        env: dev
     spec:
         containers:
           - name: devopsweb
@@ -25,3 +24,14 @@ spec:
                   protocol: TCP
         imagePullSecrets:
           - name: arvind-secret-key
+        restartPolicy: Always
+  triggers:
+  - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - devopsweb
+      from:
+        kind: ImageStreamTag
+        name: hellodevops:latest
+    type: ImageChange
