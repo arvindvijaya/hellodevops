@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Route
+metadata:
+  name: devops-route
+  labels:
+    name: devops
+    env: dev
+spec:
+  host: devops-route-devopsdemo.apps.honda-lde.rht-labs.com
+  to:
+    kind: Service
+    name: devops-svc
