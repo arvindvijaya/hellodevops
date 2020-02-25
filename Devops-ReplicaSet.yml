@@ -20,7 +20,7 @@ spec:
           - name: devopsweb
             image: arvindvijaya/hellodevopsdocker:latest
             ports:
-                - containerPort: 80
+                - containerPort: 8000
                   name: http
                   protocol: TCP
         imagePullSecrets:
